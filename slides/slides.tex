@@ -1,35 +1,35 @@
 \documentclass{beamer}
-
+\usetheme[faculty=science, university=uu, logo=uu-logo]{fibeamer}
 \usepackage[utf8]{inputenc}
-\usepackage{listings}
-\lstset{
-    frame=single
-}
+\usepackage[
+  main=english
+]{babel}
 
-% TODO Check https://pt.overleaf.com/learn/latex/Beamer
-
-%Information to be included in the title page:
 \title{Interrupt Handling on Linux}
-\author{Gabriel Francisco Mandaji}
-\institute{LKCamp}
-\date{2019}
+\subtitle{Short talks}
+\author{LKCAMP - Round 3 - June 11, 2019}
 
-\AtBeginSection[]
-{
-    \begin{frame}
-        \frametitle{Table of Contents}
-        \tableofcontents[currentsection,subsectionstyle=hide]
-    \end{frame}
-}
+\usepackage{ragged2e}  % `\justifying` text
+\usepackage{booktabs}  % Tables
+\usepackage{tabularx}
+\usepackage{tikz}      % Diagrams
+\usetikzlibrary{calc, shapes, backgrounds}
+\usepackage{amsmath, amssymb}
+\usepackage{url}       % `\url`s
+\usepackage{listings}  % Code listings
+\frenchspacing
 
 \begin{document}
 
-\frame{\titlepage}
+\frame{\maketitle}
 
-\begin{frame}
-    \frametitle{Table of Contents}
-    \tableofcontents[subsectionstyle=hide]
-\end{frame}
+% Print an outline at the beginning of sections
+\AtBeginSection[]{
+    \begin{frame}<beamer>
+        \frametitle{Index \thesection}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
 
 \input{slides/01-whats-an-interrupt.tex}
 \input{slides/02-irqs-on-linux.tex}
