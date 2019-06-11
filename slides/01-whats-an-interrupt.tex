@@ -1,0 +1,58 @@
+\section{What's an Interrupt}
+
+\begin{frame}{\secname}
+    \begin{itemize}
+        \item A trigger that an unexpected condition happened
+        \item Synchronous
+        \begin{itemize}
+            \item Division by zero
+            \item Special processor instruction
+            \begin{itemize}
+                \item INT 0x80
+            \end{itemize}
+        \end{itemize}
+        \item Asynchronous
+        \begin{itemize}
+            \item Signaling a PIN on the CPU
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\secname}
+    When to use interrupts?
+
+    \begin{itemize}
+        \item Waiting for asynchronous events
+        \begin{itemize}
+            \item Button
+            \item Networking
+        \end{itemize}
+        \item Long asynchronous tasks
+        \begin{itemize}
+            \item Disk I/O
+            \item Networking
+            \item DMA
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\secname}
+    How are interrupts handled?
+
+    \begin{itemize}
+        \item Numbered interrupt Request (IRQ) Vector
+        \begin{itemize}
+            \item Interrupt handler's address
+            \begin{itemize}
+                \item or instruction that jumps to the interrupt handler
+            \end{itemize}
+            \item Code executed in "interrupt mode"
+            \begin{itemize}
+                \item Most other interrupts are masked
+                \item Does not preempt
+                \item Can be used to setup deferred work
+                      (e.g.: pushing data into a buffer)
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
